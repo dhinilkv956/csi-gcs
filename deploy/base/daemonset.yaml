@@ -61,7 +61,7 @@ spec:
             value: /var/lib/csi/sockets/pluginproxy/csi.sock
           - name: NAMESPACE
             value: kube-system
-        imagePullPolicy: "IfNotPresent"
+        imagePullPolicy: "Never"
         volumeMounts:
           - name: socket-dir
             mountPath: /var/lib/csi/sockets/pluginproxy/
@@ -77,7 +77,7 @@ spec:
             value: /var/lib/csi/sockets/pluginproxy/csi.sock
           - name: NAMESPACE
             value: kube-system
-        imagePullPolicy: "IfNotPresent"
+        imagePullPolicy: "Never"
         volumeMounts:
           - name: socket-dir
             mountPath: /var/lib/csi/sockets/pluginproxy/
