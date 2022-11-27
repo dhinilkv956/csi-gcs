@@ -20,8 +20,8 @@ spec:
       serviceAccount: csi-gcs
       containers:
       - name: csi-node-driver-registrar
- #       image: quay.io/k8scsi/csi-node-driver-registrar:v1.2.0
-        image: objectscale/csi-node-driver-registrar:v2.5.0
+        image: quay.io/k8scsi/csi-node-driver-registrar:v1.2.0
+ #       image: objectscale/csi-node-driver-registrar:v2.5.0
         imagePullPolicy: Always
         args:
         - "--v=5"
@@ -110,8 +110,8 @@ spec:
         - name: fuse-device
           mountPath: /dev/fuse
         - name: mountpoint-dir
-          mountPath: /mnt/
-  #        mountPath: /var/lib/kubelet/pods
+  #        mountPath: /mnt/
+          mountPath: /var/lib/kubelet/pods
           mountPropagation: Bidirectional
         - name: socket-dir
           mountPath: /csi
@@ -133,7 +133,7 @@ spec:
           type: DirectoryOrCreate
       - name: mountpoint-dir
         hostPath:
-          path: /mnt/
+          path: /var/lib/kubelet/pods
           type: Directory
       - name: registration-dir
         hostPath:
